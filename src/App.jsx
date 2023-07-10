@@ -5,14 +5,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CharacterDetailPage from "./pages/characters-detail";
 import CustomNavbar from "./components/navbar";
+import CharactersPage from "./pages/characters";
 
 //ésto va a ser un componente
 const HomePage = () => {
   return <h1>Hola Home Page Componente</h1>;
-};
-
-const CharactersPage = () => {
-  return <h1>Hola Characters Page</h1>;
 };
 
 const LocationsPage = () => {
