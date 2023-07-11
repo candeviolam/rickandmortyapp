@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-//       hook de react-router-dom -> p/recibir los parámetros de la ruta(? 
+//       hook de react-router-dom -> p/recibir los parámetros de la ruta(?
 import { useParams } from "react-router-dom";
 
 export const CharacterDetailPage = () => {
@@ -10,11 +10,12 @@ export const CharacterDetailPage = () => {
 
   //p/hacer una petición al servidor -> usamos el id p/hacer la petición a la api
   useEffect(() => {
-    fetch(`https://rickandmortyapi.com/api/character/${id}`)
-      .then((response) => response.json())
+    //el fetch que teníamos acá, movido a services, solo dejo un .then y el .catch (? -> lo extraje a un servicio externo
+    //importamos la func desde el servicio, con el id(?
+    GetCharacterById({ id })
       .then((result) => console.log(result))
       .catch((err) => console.log(err));
-  }, []); //no necesita dependencia en éste caso
+  }); //sin dependencia, necesitamos que se ejecuto una sola vez
 
   return <h1>Hola Detalle Personajes</h1>;
 };

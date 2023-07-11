@@ -27,4 +27,27 @@ fetch("https://rickandmortyapi.com/api/character")
     .catch((err) => console.log(err));
 */
 
-export { GetCharacters };
+//voy a crear otro servicio que se va a encargar de hacer el fetch que estaba en CharactersDetailPage (abajo está el código como estaba en el otro archivo) en una func asíncrona, envuelto en un try-catch
+async function GetCharacterById({ id }) {
+  try {
+    //       ésto me trae una respuesta que la tengo que convertir a json
+    const result = await fetch(
+      `https://rickandmortyapi.com/api/character/${id}`
+    );
+    //como ésto es una promesa, lo tengo que esperar
+    const response = await result.json();
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+/*
+fetch(`https://rickandmortyapi.com/api/character/${id}`)
+    .then((response) => response.json())
+    .then((result) => console.log(result))
+    .catch((err) => console.log(err));
+*/
+
+//                      lo llamamos (importamos la func) en CharactersDetailPage
+export { GetCharacters, GetCharacterById };
