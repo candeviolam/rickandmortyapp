@@ -1,9 +1,7 @@
 import CharacterCard from "../../components/card/CharacterCard";
 import CustomLoader from "../../components/loader/CustomLoader";
 import { GetCharacters } from "../../services/RickAndMortyService";
-import { DataProvider } from "../../context/DataContext";
-//                            p/acceder al contexto
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 
 import "./CharactersPage.css";
 
@@ -13,12 +11,6 @@ export const CharactersPage = () => {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1); // abajo en el div, una vez que se hayan renderizado mis personajes, vamos a devolver otro div más..
 
-  //#region contexto
-  //cómo acceder al contexto -> necesitamos usar el hook useContext, que lo importamos arriba
-  //                          el useContext necesita que le pasemos un contexto - cuando lo pongo me lo importa arriba
-  const contexto = useContext(DataProvider); // -> en DataContext, DataProvider es la variable que crea la func createContext();
-    console.log(contexto);
-  //#endregion contexto
 
   useEffect(() => {
     //antes de empezar a cargar los personajes, antes de llamar a la base, vamos a colocar la carga (vamos a empezar a mostrarle al usuario que estamos haciendo una carga)

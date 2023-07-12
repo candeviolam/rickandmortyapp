@@ -1,3 +1,7 @@
+//asíncrona -> hace una petición y devuelve una promesa
+
+//#region CharactersPage
+
 //como esta func se va a encargar de hacer una petición al servidor, la voy a hacer asíncrona p/poder usar la palabra await
 //como estamos haciendo con asincronía, no hace falta hacer el .then .then .catch etc, sino que lo hacemos de ésta forma
 //                             si voy a get all characters de la documentación, me dice que tengo que pasar un query string que dice page en la url
@@ -27,6 +31,10 @@ fetch("https://rickandmortyapi.com/api/character")
     .catch((err) => console.log(err));
 */
 
+//#endregion CharactersPage
+
+//#region CharactersDetailPage
+
 //voy a crear otro servicio que se va a encargar de hacer el fetch que estaba en CharactersDetailPage (abajo está el código como estaba en el otro archivo) en una func asíncrona, envuelto en un try-catch
 async function GetCharacterById({ id }) {
   try {
@@ -51,3 +59,5 @@ fetch(`https://rickandmortyapi.com/api/character/${id}`)
 
 //                      lo llamamos (importamos la func) en CharactersDetailPage
 export { GetCharacters, GetCharacterById };
+
+//#endregion CharactersDetailPage

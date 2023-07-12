@@ -1,9 +1,7 @@
 import CustomLoader from "../../components/loader/CustomLoader";
-import { DataProvider } from "../../context/DataContext";
 import { GetCharacterById } from "../../services/RickAndMortyService";
 //                  importamos ahora si el useState que nos estaba faltando
-//                            p/acceder al contexto
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 //       hook de react-router-dom -> p/recibir los parámetros de la ruta(?
 import { NavLink, useParams } from "react-router-dom";
 
@@ -18,18 +16,6 @@ export const CharacterDetailPage = () => {
   //                                         useState inicializado como obj vacío
   const [character, setCharacter] = useState({});
   const [loader, setLoader] = useState(false);
-
-  //#region contexto
-  //cómo acceder al contexto -> necesitamos usar el hook useContext, que lo importamos arriba
-  //                          el useContext necesita que le pasemos un contexto - cuando lo pongo me lo importa arriba
-  const contexto = useContext(DataProvider); // -> en DataContext, DataProvider es la variable que crea la func createContext();
-  //además de hacer el contexto, vamos a modificar los valores del useStates de DataContext con las funciones que tenemos hechas ahí
-  contexto.setIsLogged(true);
-  contexto.setMensaje(
-    "Cambie el msj del contexto desde CharactersDetailPage" // -> ésto queda modificado p/los otros lados tmb(? pq puedo acceder al contexto desde allá tmb(?
-  );
-  console.log(contexto);
-  //#endregion contexto
 
   //p/hacer una petición al servidor -> usamos el id p/hacer la petición a la api
   useEffect(() => {

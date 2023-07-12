@@ -9,6 +9,7 @@ import { createContext, useState } from "react";
 export const DataProvider = createContext();
 //           DataProvider es la variable que vamos a usar en useContext p/acceder al contexto desde otros comps pq es la que crea la func createContext()
 
+// hace ref al estado gral de toda la aplic - el contexto se encarga de manejar ese estado
 //vamos a crear un componente que tmb vamos a exportar (que se va a llamar como el archivo)
 // como este comp es un HoC, va a recibir {children} de prop -> va pasando las props por children
 export const DataContext = ({ children }) => {
@@ -17,6 +18,8 @@ export const DataContext = ({ children }) => {
   //p/ejemplificar únicamente
   const [mensaje, setMensaje] = useState("Hola soy el contexto");
 
+  //acá creo los valores que quiero que sean globales a mi aplic 
+  //    nombre que quiera
   //necesito decirle a nstro proveedor del return que los datos iniciales van a ser los del useState, p/eso vamos a crear una func(? que va a ser un obj({}) que va a tener los valores del useState -> no necesito los ":" en el obj pq voy a usar el mismo nombre, pero si quisiera cambiarles el nombre a las variables pordría hacer..
   //logged: isLogged,
   //funcionLogged: setIsLogged,
